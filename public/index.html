@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en-US" ng-app="App">
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+<body>
+	<div  class="container" ng-controller="AppCtrl">
+		<h1>Contact List</h1>	
+	  	 <table class="table">
+		    <thead>
+		      <tr>
+		        <th>#</th>
+		        <th>Firstname</th>
+		        <th>Lastname</th>
+		        <th>Age</th>
+		        <th>City</th>
+		        <th>Country</th>
+		        <th></th>
+		      </tr>
+		    </thead>
+		    <tbody>
+		    	<tr>
+			        <td></td>
+			        <td><input type="text" class="form-control" ng-model="contact.firstName"></td>
+			        <td><input type="text" class="form-control" ng-model="contact.lastName"></td>
+			        <td><input type="text" class="form-control" ng-model="contact.age"></td>
+			        <td><input type="text" class="form-control" ng-model="contact.city"></td>
+			        <td><input type="text" class="form-control" ng-model="contact.country"></td>
+			         <td><button type="button" class="btn btn-primary" ng-click="save(contact)">Submit</button>
+			         <button type="button" class="btn btn-primary" ng-click="update(contact)">Update</button>
+			          <button type="button" class="btn btn-primary" ng-click="clear()">Clear</button></td>
+			     </tr>
+			      <tr ng-repeat="contact in contacts">
+			        <td>{{$index+1}}</td>
+			        <td>{{contact.firstName}}</td>
+			        <td>{{contact.lastName}}</td>
+			        <td>{{contact.age}}</td>
+			        <td>{{contact.city}}</td>
+			        <td>{{contact.country}}</td>
+			        <td><button type="button" class="btn btn-danger" ng-click="remove(contact._id)">Remove</button>
+			        <button type="button" class="btn btn-info" ng-click="edit(contact._id)">Edit</button></td>
+			        
+			      </tr>
+		    </tbody>
+		  </table>  
+	</div>
+
+	<!-- Angular library -->
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+	<script src="controller/AppCtrl.js"></script>
+</body>
+</html>
